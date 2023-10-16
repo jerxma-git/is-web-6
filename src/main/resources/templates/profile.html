@@ -6,18 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}" />
 </head>
 <body>
     <header th:replace="~{fragments/base.html :: header}"></header>
-    <div th:each="task : ${tasks}">
-        <p>ID: <span th:text="${task.id}">Task id</span></p>
-        <p>Description: <span th:text="${task.description}">Task Description</span></p>
-        <p>Status: <span th:text="${task.status}">Status</span></p>
-    </div>
-
+    <h1>Welcome, <span th:text="${user.username}"></span></h1>
+    <p>Your credentials:</p>
+    <p>username: "<span th:text="${user.username}"></span>"</p>
+    <p>password: "<span th:text="${user.password}"></span>"</p>
     <footer th:replace="~{fragments/base.html :: footer}"></footer>
-
-
-    <script th:src="@{/js/tasks.js}"></script>
 </body>
 </html>

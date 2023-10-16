@@ -25,12 +25,9 @@ public class DisplayController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/show-tasks")
-    public String showTasks(Model model) {
-        List<Task> tasks = taskService.findAll();
-        model.addAttribute("tasks", tasks);
-        model.addAttribute("current_user", userService.getCurrentUser());
-        return "task_display";
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/dashboard";
     }
 
     @GetMapping("/dashboard")
@@ -40,11 +37,20 @@ public class DisplayController {
         return "dashboard";
     }
 
+
+    //TODO: remove
     @GetMapping("/show-users")
     public String showUsers(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "list-users";
+    }
+
+    @GetMapping("/profile")
+    public String showProfile(Model model) {
+        User currentUser = userService.getCurrentUser();
+        model.addAttribute("user", currentUser);
+        return "profile";
     }
 
     @GetMapping("/statistics")
@@ -53,4 +59,10 @@ public class DisplayController {
         model.addAttribute("stats", tasks);
         return "statistics";
     }
+
+    @GetMapping("/registration")
+    public String showRegistration(Model model) {
+        return "registration";
+    }
+
 }

@@ -1,4 +1,4 @@
-function createTask(description="blank", status="created") {
+function createTask(description="blank", status) {
     fetch('/api/tasks/create', {
         method: 'POST',
         headers: {
@@ -6,8 +6,9 @@ function createTask(description="blank", status="created") {
         },
         body: JSON.stringify({ 
             description: description,
-            status: status,
-        }),
+            ...status && {status : status},
+        } 
+        ),
     })
     .then(response => response.json())
     .then(data => {

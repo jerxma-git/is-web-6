@@ -62,9 +62,11 @@ public class TaskController {
     }
 
     @PostMapping("/create")
-    public Task createTask(@RequestBody Task task) {
+    public Task createTask(@RequestBody Task task) { 
         return taskService.createTask(task);
     }
+
+    
 
     @PutMapping("/update/{taskId}")
     public ResponseEntity<Task> updateTask(@PathVariable Long taskId, @RequestBody Task updated) {

@@ -12,6 +12,8 @@
 </head>
 <body>
     <header th:replace="~{fragments/base.html :: header}"></header>
+
+    
     <p>Dashboard</p>
     <div class="task" th:each="task : ${tasks}">
         <p>ID: <span th:text="${task.id}">Task id</span></p>

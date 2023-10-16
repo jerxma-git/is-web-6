@@ -49,8 +49,10 @@ public class SecurityConfig implements WebMvcConfigurer {
         http
             .authorizeHttpRequests(authorize -> authorize
                 // .requestMatchers("/api/tasks/delete").hasAuthority("DELETE")
-                .requestMatchers("/api/tasks/create").hasRole("USER")
-                .requestMatchers("/show-tasks").hasRole("USER")
+                // .requestMatchers("/api/tasks/create").hasRole("USER")
+                // .requestMatchers("/show-tasks").hasRole("USER")
+                .requestMatchers("/registration").permitAll()
+                .requestMatchers("/api/users/create").permitAll()
                 .anyRequest().authenticated()
             )
             .csrf(AbstractHttpConfigurer::disable)

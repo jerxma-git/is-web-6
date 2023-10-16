@@ -20,6 +20,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public User createUser(User user) {
+        user.setRoles(List.of("USER"));
+        return userRepository.save(user);
+    }
+
     public User createUser(String username, String password) {
         User newUser = new User();
         newUser.setUsername(username);

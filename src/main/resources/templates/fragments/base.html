@@ -10,8 +10,8 @@
 <body>
     <header th:fragment="header">
         <nav th:fragment="navbar">
-            <a href="/" class="home">Home</a>
             <a href="/dashboard" class="dashboard">Dashboard</a>
+            <a href="/statistics" class="statistics">Statistics</a>
             <a href="/profile" class="profile">Profile</a>
         </nav>
         <div class="session-info" th:fragment="session-info">Logged in as <span th:text="${currentUsername}"></span></div>
