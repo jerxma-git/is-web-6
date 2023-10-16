@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.mysite.todolist.interceptor.TimingInterceptor;
+import com.mysite.todolist.interceptor.UserInjectorInterceptor;
 
 
 @Configuration
@@ -21,6 +22,9 @@ public class SecurityConfig implements WebMvcConfigurer {
     
     @Autowired
     TimingInterceptor timingInterceptor;
+    @Autowired
+    UserInjectorInterceptor userInjectorInterceptor;
+
 
     @Autowired
     UserDetailsService userDetailsService;
@@ -29,6 +33,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
         interceptorRegistry.addInterceptor(timingInterceptor);
+        interceptorRegistry.addInterceptor(userInjectorInterceptor);
     }
 
 

@@ -12,7 +12,6 @@ function createTask(description="blank", status="created") {
     .then(response => response.json())
     .then(data => {
         console.log('Task created:', data);
-        // You can handle the response or redirect as needed
     })
     .catch(error => {
         console.error('Error creating task:', error);

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.mysite.todolist.model.DailyStatistics;
 import com.mysite.todolist.model.Task;
 import com.mysite.todolist.model.User;
+import com.mysite.todolist.service.StatisticsService;
 import com.mysite.todolist.service.TaskService;
 import com.mysite.todolist.service.UserService;
 
@@ -16,6 +18,9 @@ import com.mysite.todolist.service.UserService;
 public class DisplayController {
     @Autowired
     TaskService taskService;
+
+    @Autowired
+    StatisticsService statisticsService;
 
     @Autowired
     UserService userService;
@@ -32,7 +37,6 @@ public class DisplayController {
     public String showDashboard(Model model) {
         List<Task> tasks = taskService.findAllInProgress();
         model.addAttribute("tasks", tasks);
-        model.addAttribute("current_user", userService.getCurrentUser());
         return "dashboard";
     }
 
@@ -40,7 +44,13 @@ public class DisplayController {
     public String showUsers(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
-        model.addAttribute("current_user", userService.getCurrentUser());
         return "list-users";
+    }
+
+    @GetMapping("/statistics")
+    public String showStatistics(Model model) {
+        List<DailyStatistics> tasks = statisticsService.getWeeklyStatistics();
+        model.addAttribute("stats", tasks);
+        return "statistics";
     }
 }

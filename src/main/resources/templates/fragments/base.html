@@ -14,7 +14,7 @@
             <a href="/dashboard" class="dashboard">Dashboard</a>
             <a href="/profile" class="profile">Profile</a>
         </nav>
-        <div class="session-info" th:fragment="session-info">Logged in as <span th:text="${current_user.username}"></span></div>
+        <div class="session-info" th:fragment="session-info">Logged in as <span th:text="${currentUsername}"></span></div>
         <form action="/logout" method="post">
             <button>Log out</button>
         </form>
@@ -23,9 +23,8 @@
     <footer th:fragment="footer">
         <p>funi lil footer</p>
         <p> Processing time: <span id="server-time" th:text="${processingTime}"></span>ms (server) + <span id="client-time"></span>ms (client)</p>
+        <script th:src="@{/js/footer.js}"></script>
     </footer>
 
-
-    <script th:fragment="base-script" th:src="@{/js/base.js}"></script>
 </body>
 </html>

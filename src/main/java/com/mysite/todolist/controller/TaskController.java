@@ -39,15 +39,27 @@ public class TaskController {
         return taskService.findAllCompleted();
     }
 
+    @GetMapping("/list/completed/this-day")
+    public List<Task> getCompletedThisDayTasks() {
+        return taskService.findAllCompletedThisDay();
+    }
+
+    @GetMapping("/list/completed/this-week")
+    public List<Task> getCompletedThisWeekTasks() {
+        return taskService.findAllCompletedThisWeek();
+    }
+
+    @GetMapping("/list/completed/this-month")
+    public List<Task> getCompletedThisMonthTasks() {
+        return taskService.findAllCompletedThisMonth();
+    }
+
+
+
     @GetMapping("/list/in-progress")
     public List<Task> getInProgressTasks() {
         return taskService.findAllInProgress();
     }
-
-    // @PostMapping("/ehecreate")
-    // public Task ehecreateTask(@RequestBody Task task) {
-    //     return taskService.createTask(task);
-    // }
 
     @PostMapping("/create")
     public Task createTask(@RequestBody Task task) {
@@ -62,12 +74,9 @@ public class TaskController {
             return ResponseEntity.notFound().build();
         }
 
-        // Update the existing task with the details from the updatedTask
         existing.setDescription(updated.getDescription());
         existing.setStatus(updated.getStatus());
-        // Update other task attributes as needed
 
-        // Save the updated task
         Task updatedTask = taskService.save(existing);
 
         return ResponseEntity.ok(updatedTask);
