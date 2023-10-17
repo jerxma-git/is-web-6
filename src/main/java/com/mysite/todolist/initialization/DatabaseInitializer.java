@@ -31,11 +31,11 @@ public class DatabaseInitializer {
             .password("pasvord")
             .roles(List.of("ROLE_USER", "DELETE"))
             .build();
-        if (userRepository.findByUsername("testuser") != null) {
+        if (userRepository.findByUsername("testuser") == null) {
             userRepository.save(testUser);
         
         }
-        if (userRepository.findByUsername("adminuser") != null) {
+        if (userRepository.findByUsername("adminuser") == null) {
             userRepository.save(adminUser);        
         }
 
