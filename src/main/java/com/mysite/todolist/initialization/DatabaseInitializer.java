@@ -20,21 +20,24 @@ public class DatabaseInitializer {
 
     @PostConstruct
     public void init() {
+        
         User testUser = User.builder()
-            .id(512L)
             .username("testuser")
             .password("pasvord")
             .roles(List.of("ROLE_USER"))
             .build();
         User adminUser = User.builder()
-            .id(123L)
             .username("adminuser")
             .password("pasvord")
             .roles(List.of("ROLE_USER", "DELETE"))
             .build();
-            
-        userRepository.save(testUser);
-        userRepository.save(adminUser);
+        if (userRepository.findByUsername("testuser") != null) {
+            userRepository.save(testUser);
+        
+        }
+        if (userRepository.findByUsername("adminuser") != null) {
+            userRepository.save(adminUser);        
+        }
 
         // Other initialization tasks can be added here
     }
