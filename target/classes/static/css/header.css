@@ -1,0 +1,12 @@
+header {
+    height: 100px;
+    width: auto;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header .session-info {
+    margin-left: auto;
+}

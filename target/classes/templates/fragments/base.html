@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your To-Do List App</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}" />
+</head>
+<body>
+    <header th:fragment="header">
+        <nav th:fragment="navbar">
+            <a href="/dashboard" class="dashboard">Dashboard</a>
+            <a href="/statistics" class="statistics">Statistics</a>
+            <a href="/profile" class="profile">Profile</a>
+        </nav>
+        <div class="session-info" th:fragment="session-info">Logged in as <span th:text="${currentUsername}"></span></div>
+        <form action="/logout" method="post">
+            <button>Log out</button>
+        </form>
+    </header>
+
+    <footer th:fragment="footer">
+        <p>funi lil footer</p>
+        <p> Processing time: <span id="server-time" th:text="${processingTime}"></span>ms (server) + <span id="client-time"></span>ms (client)</p>
+        <script th:src="@{/js/footer.js}"></script>
+    </footer>
+
+</body>
+</html>
