@@ -22,6 +22,7 @@
 
 ## Лаб3
 Подключен Postgres на Render, реализованы 2 сущности Task и User в [/model](/src/main/java/com/mysite/todolist/model))
+[oops](/DB_ERD.png)
 
 ## Лаб4
 Подключена генерация API по URL определенному в переменной окружения API_DOCS_URL 
