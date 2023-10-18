@@ -51,8 +51,13 @@ public class TaskService {
         return null;
     }
 
-    public void deleteTask(Long taskId) {
+    public boolean deleteTask(Long taskId) {
+        Task task = getTask(taskId);
+        if (task == null) {
+            return false;
+        }
         taskRepository.deleteById(taskId);
+        return true;
     }
 
     public boolean markTaskAsCompleted(Long taskId) {
@@ -132,6 +137,21 @@ public class TaskService {
 
     public Task getTask(Long id) {
         return taskRepository.findById(id).orElse(null);
+    }
+
+    public Task updateTask(Long id, Task updated) {
+        Task existing = getTask(id);
+
+        if (existing == null) {
+            return null;
+        }
+
+        if (updated.getDescription() != null) {
+            existing.setDescription(updated.getDescription());
+        }
+        existing.setDescription(updated.getDescription());
+        save(existing);
+        return existing;
     }
 
     public Task save(Task task) {

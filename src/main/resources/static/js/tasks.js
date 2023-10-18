@@ -24,7 +24,7 @@ function deleteTask(taskId) {
         method: 'DELETE',
     })
     .then(response => {
-        if (response.status === 204) {
+        if (response.status === 200) {
             console.log('Task deleted successfully');
         } else {
             console.error('Error deleting task');
@@ -38,8 +38,8 @@ function deleteTask(taskId) {
 
 function updateTask(taskId, description, status) {
     updatedTask = {
-        description: description,
-        status: status,
+        ...description && {description: description},
+        ...status && {status: status},
     }
     fetch(`/api/tasks/update/${taskId}`, {
         method: "PUT",
@@ -49,7 +49,7 @@ function updateTask(taskId, description, status) {
         body: JSON.stringify(updatedTask),
     })
     .then(response => {
-        if (response.status === 204) {
+        if (response.status === 200) {
             console.log('Task deleted successfully');
         } else {
             console.error('Error deleting task');
