@@ -65,4 +65,9 @@ public class DisplayController {
         return "registration";
     }
 
+    @GetMapping("/chat")
+    public String showChat(Model model) {
+        return "chat";
+    }
+
 }

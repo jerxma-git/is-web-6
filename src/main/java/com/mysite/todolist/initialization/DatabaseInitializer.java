@@ -29,7 +29,7 @@ public class DatabaseInitializer {
         User adminUser = User.builder()
             .username("adminuser")
             .password("pasvord")
-            .roles(List.of("ROLE_USER", "DELETE"))
+            .roles(List.of("ROLE_USER", "ROLE_ADMIN"))
             .build();
         if (userRepository.findByUsername("testuser") == null) {
             userRepository.save(testUser);
