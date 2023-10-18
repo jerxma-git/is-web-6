@@ -18,16 +18,17 @@
 
 ## Лаб2
 Используется шаблонизатор Thymeleaf: выделены partials ("fragments") в [/fragments/base.html](src/main/resources/templates/fragments/base.html)
-в футере добавляется информация о времени отрисовки страницы (логика реализована в [Interceptor'е](/src/main/java/com/mysite/todolist/interceptor/TimingInterceptor.java) и в скрипте [base.js](/src/main/resources/static/js/base.js))
+в футере добавляется информация о времени отрисовки страницы (логика реализована в [Interceptor'е](/src/main/java/com/mysite/todolist/interceptor/TimingInterceptor.java) и в скрипте [footer.js](/src/main/resources/static/js/footer.js))
 
 ## Лаб3
-Подключен Postgres на Render, реализованы 2 модели Task и User в [/model](/src/main/java/com/mysite/todolist/model))
+Подключен Postgres на Render, реализованы 2 сущности Task и User в [/model](/src/main/java/com/mysite/todolist/model))
 
 ## Лаб4
 Подключена генерация API по URL определенному в переменной окружения API_DOCS_URL 
-Контроллеры страниц реализованы в [/controller](/src/main/java/com/mysite/todolist/conroller).
+Контроллеры страниц реализованы в [/controller](/src/main/java/com/mysite/todolist/controller).
 
 ## Лаб5
+Реализованы контроллеры, сервисы, модели, репозитории Spring'а
 
 ## Лаб6
 Используется Spring Security, основная конфигурация лежит в [SecurityConfig.java](/src/main/java/com/mysite/todolist/security/SecurityConfig.java)
@@ -35,3 +36,4 @@
 
 ## Лаб7
 Реализован чат по WebSocket каналу в `/chat`
+Конфигурация WebSocket'a лежит в 
